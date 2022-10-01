@@ -37,6 +37,7 @@
     </style>
 </head>
 <body>
+<h1 id="hp">HP: 3</h1>
 <div class='background'>
     <img id='drone' src="drone.png" alt="drone">
     <img id='spit' src="spit.png" alt="spit">
@@ -47,9 +48,16 @@
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
         crossorigin="anonymous"></script>
 <script>
+    let hp = 3;
     $('#drone').click(function (){
-        console.log('spit');
-    })
+        $('#spit').fadeIn();
+        $('#spit').animate({left: '+=250'});
+        $('#spit').fadeOut(function(){
+            hp = hp - 1;
+            $('#hp').text('HP: '+ hp)
+        });
+        $('#spit').css({left: '150px'});
+    });
 </script>
 </body>
 </html>
